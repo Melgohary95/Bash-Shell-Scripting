@@ -7,7 +7,7 @@ let x=`ls "./DataBases" | wc -w`
 
 if [ $x -eq 0 ]
 then
-    echo "You don't have any DBs yet!"
+    echo "There are no DBs yet!"
     sleep 1
 else
     while true
@@ -26,7 +26,7 @@ else
 
             if test -z "$input"
             then
-                echo "Invalid name.(DB name should contain at least one character!!)"
+                echo "Invalid name >> (DB name should contain at least one character!!)"
                 sleep 1
                 continue
 

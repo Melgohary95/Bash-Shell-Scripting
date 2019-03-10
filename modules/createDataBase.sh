@@ -15,7 +15,7 @@ do
       then
             if test -e "./DataBases/$input"
             then
-                  echo "This name is already taken."
+                  echo "This name already exists"
                   sleep 1
                   continue
 
@@ -27,7 +27,7 @@ do
                         break
             fi
       else
-      echo "Invalid name.(Database name should start with a letter or _ and contain only letters and numbers!!)"
+      echo "Invalid name >> (Database name should start with a letter or _ and contain only letters and numbers!!)"
       sleep 2
       continue
       fi

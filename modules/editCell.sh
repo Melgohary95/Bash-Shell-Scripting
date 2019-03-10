@@ -18,7 +18,7 @@ coltype=""
 while true
 do
     clear
-    echo "Now you're editing ' $input ' Table"
+    echo "Editing ' $input ' Table"
     echo ""
     echo "Columns and their datatypes in this table are:"
     echo "$colnametype "
@@ -32,7 +32,7 @@ do
     if test -z "$value"
     then
         clear
-        echo "Invalid name.(Column name should contain at least one character!!)"
+        echo "Invalid name >> (Column name should contain at least one character!!)"
         sleep 1
         continue
     else

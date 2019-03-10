@@ -8,7 +8,7 @@ let x=`ls "./DataBases/$1" | wc -w`
 if [ $x -eq 0 ]
 then
     echo ""
-    echo "You don't have any Tables in this DB !"
+    echo "There are no Tables in this DB !"
     sleep 1
     continue
 else
@@ -17,7 +17,7 @@ else
         clear
         echo "available tables are:"
         ls ./DataBases/$DBname
-        echo "Please enter Table name to be DELETED: "
+        echo "Please enter Table name to be deleted: "
         read input
 
     if [[ $input =~ $regex ]]
@@ -25,7 +25,7 @@ else
 
         if test -z "$input"
         then
-        echo "Invalid name.(Table name should contain at least one character!!)"
+        echo "Invalid name >> Table name should contain at least one character!!)"
         sleep 1
         continue
 

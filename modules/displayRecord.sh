@@ -18,7 +18,7 @@ while [ true ]
 then
     if test -z "$input"
     then
-    echo "Invalid name.(Table name should contain at least one character!!)"
+    echo "Invalid name >> (Table name should contain at least one character!!)"
     sleep 1
     clear
     break
@@ -34,23 +34,38 @@ then
         echo "Now You are working with '$input' table"
         echo "Please Enter the PK you want to Display"
         read pk
-        awk -F: '{if('$pk'==$1) print "Found"}' "./DataBases/$1/$input" > ./DataBases/$1/.data
-        if test -e "./DataBases/$1/.data"
-        then
-            awk -F: 'BEGIN{OFS="\t";ORS="\t"}{print $1,$2}' ./DataBases/$1/.colsnames
-            echo ""
-            awk -F: 'BEGIN{OFS="\t \t";}{if ('$pk'==$1) print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' "./DataBases/$1/$input"
-            echo "Press any key to continue "
-            read back
-            if [[ $back =~ $regex ]]
+        let pkexist=1
+        let linecounter=0
+
+        pkrecord=`cut -f1 -d":" ./DataBases/$1/$input`               
+
+        for test in $pkrecord                         
+        do
+            let linecounter=$linecounter+1
+            if [ $test -eq $pk ] 2> /dev/null || [ $test = $pk ] 2> /dev/null
             then
+            let pkexist=0
             break
             fi
-        else
-            echo "Invalid Primary Key!!"
+        done
+
+        if [ $pkexist -ne 0 ]
+        then
+            echo "This PK value doesn't exist."
+            sleep 1
+            continue
+        fi
+        awk -F: 'BEGIN{OFS="\t";ORS="\t"}{print $1,$2}' ./DataBases/$1/.colsnames
+        echo ""
+        awk -F: 'BEGIN{OFS="\t \t";}{if ('$pk'==$1) print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' "./DataBases/$1/$input"
+        echo "Press any key to continue "
+        read back
+        if [[ $back =~ $regex ]]
+        then
+        break
         fi
         rm ./DataBases/$1/.data
-            done
+        done
     fi
     fi
     done

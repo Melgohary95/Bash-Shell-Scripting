@@ -20,7 +20,7 @@ else
         echo -e "Press b if you want to go back\n"
         echo -e "Available databases are :"
         ls "./DataBases"
-        echo -e "\nPlease enter Database name to be deleted: "
+        echo -e "\nPlease enter Database name you want to delete: "
         read input
 
     if [[ $input == "b" ]]

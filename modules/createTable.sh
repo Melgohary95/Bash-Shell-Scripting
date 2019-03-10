@@ -21,7 +21,7 @@ do
 
         if test -e "./DataBases/$DBname/$input"
             then
-            echo "This table is already exist."
+            echo "This table already exists"
             sleep 1
             continue
 
@@ -30,8 +30,8 @@ do
           while true
           do
               clear
-              echo "note: The first column will be your primary key"
-              echo "Now you're working with ' $input ' table."
+              echo "Tip: The first column will be your primary key"
+              echo "you selected ' $input ' table."
               echo ""
               echo "Please enter number of columns: "
 
@@ -41,7 +41,7 @@ do
               then
               break
               else
-              echo "Invalid number, columns number should be integer number greter than 1!"
+              echo "Invalid number >> (columns number should be integer number greter than 1!)"
               sleep 1
               continue
               fi
@@ -69,7 +69,7 @@ do
               then
                   if test -z "$colName"
                   then
-                    echo "Invalid name.(Column name should contain at least one character!!)"
+                    echo "Invalid name >> (Column name should contain at least one character!!)"
                     sleep 1
                     continue
                   else

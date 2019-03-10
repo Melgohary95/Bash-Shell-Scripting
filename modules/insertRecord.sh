@@ -14,7 +14,7 @@ if [ $x -eq 0 ]
 then
 
     echo ""
-    echo "You don't have any tables in this DB!"
+    echo "There are no tables in this DB!"
     sleep 1
     clear
 else
@@ -31,7 +31,7 @@ else
 
         if test -z $input
         then
-        echo "Invalid name. Table name should contain at least one character."
+        echo "Invalid name >> (Table name should contain at least one character!!.)"
         continue
 
         elif test -e "./DataBases/$1/$input"

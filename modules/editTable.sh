@@ -13,7 +13,7 @@ let x=`ls "./DataBases/$DBname" | wc -w`
 if [ $x -eq 0 ]
 then
     echo ""
-    echo "You don't have any tables in this DB!"
+    echo "There are no tables in this DB!"
     sleep 1
     clear
 else
@@ -41,7 +41,7 @@ else
                 let isempty=`cat ./DataBases/$DBname/$input | wc -l`
                 if [ $isempty -eq 0 ]
                 then
-                    echo "This table is empty, there's nothing to modify!"
+                    echo "Empty table, Nothing to modify!"
                     sleep 2
 
                 break
@@ -50,7 +50,7 @@ else
                 while true
                 do
                     clear
-                    echo "Now you're editing ' $input ' Table"
+                    echo "Editing ' $input ' Table"
                     echo ""
                     echo "Please enter your PK value: "
                     read pkvalue

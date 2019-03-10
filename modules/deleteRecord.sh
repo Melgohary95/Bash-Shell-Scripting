@@ -13,7 +13,7 @@ let x=`ls "./DataBases/$DBname" | wc -w`
 if [ $x -eq 0 ]
 then
     echo ""
-    echo "You don't have any tables in this DB!"
+    echo "There are no tables in this DB!"
     sleep 1
     clear
 else
@@ -30,18 +30,18 @@ else
         then
             if test -z "$input"
             then
-                echo "Invalid name.(Table name should contain at least one character!!)"
+                echo "Invalid name >> (Table name should contain at least one character!!)"
                 sleep 1
                 continue
 
             elif test -e "./DataBases/$DBname/$input"
             then
                 clear
-                echo "Now you're editing ' $input ' Table"
+                echo "Editing ' $input ' Table"
                 let isempty=`cat ./DataBases/$DBname/$input | wc -l`
                 if [ $isempty -eq 0 ]
                 then
-                    echo "This table is empty, there's nothing to delete!"
+                    echo "Empty table, there's nothing to delete!"
                     sleep 2
 
                 break
@@ -50,7 +50,7 @@ else
                 while true
                 do
                     clear
-                    echo "Now you're editing ' $input ' Table"
+                    echo "Editing ' $input ' Table"
                     echo ""
                     echo "Please enter your Primary Key value: "
                     read pkvalue
@@ -79,7 +79,7 @@ else
                         sed -i "$linecounter d" ./DataBases/$DBname/$input  
                         clear
                         echo '
-                        "The is deleted successfully."
+                        "Deleted successfully."
                         '
                         sleep 1.5
                         break 2
