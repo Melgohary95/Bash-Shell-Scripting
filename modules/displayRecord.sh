@@ -60,11 +60,7 @@ then
         awk -F: 'BEGIN{OFS="\t \t";}{if ('$pk'==$1) print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' "./DataBases/$1/$input"
         echo "Press any key to continue "
         read back
-        if [[ $back =~ $regex ]]
-        then
         break
-        fi
-        rm ./DataBases/$1/.data
         done
     fi
     fi
