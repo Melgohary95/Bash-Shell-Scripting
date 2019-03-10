@@ -1,0 +1,33 @@
+Authors :
+
+* Mahmoud Mohsen Mahmoud Elgohary
+* Moatasim Ibrahim 
+
+=====================================
+How To Run :
+
+* open the terminal then type ./index.sh
+(note) ==> all files should be executable in order to run
+
+=====================================
+Features :
+
+* Each user can create Database
+	-----------------------
+* Each user can create , edit , delete & display tables
+	-----------------------
+* Each user can display aspecific row by primary key or delete it
+====================================
+Schema :
+
+* Database name can start with any letter or '_'
+	-----------------------
+* Each table consists of 2 columns minimum
+	-----------------------
+* The first column is always the primary key
+	-----------------------
+* the primary key can't be repeated and can't be null either
+	-----------------------
+* We have only 2 data types 
+	Integer ==> numbers , String ==> for names
+===================================
