@@ -46,18 +46,22 @@ else
             coltype=""
             colname=""
             record=""
-            if [ $coltype == "i" ]
-            then
-              typeMessage="integer"
-            else
-              typeMessage="string"
-            fi
+            typeMessage=""
+
+
 
             for test in $colnametype
             do
                 colname=`echo $test | cut -d: -f1`
                 coltype=`echo $test | cut -d: -f2`
 
+                if [ $coltype == "i" ]
+                then
+                  typeMessage="integer"
+                else
+                  typeMessage="string"
+                fi
+                
                 if [ $pkround -eq 0 ]                       #handling PK value
                 then
                     while true
