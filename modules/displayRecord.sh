@@ -32,7 +32,7 @@ then
         do
           clear
         echo "Now You are working with '$input' table"
-        echo "Please Enter the PK you want to Display"
+        echo "Please Enter the PK you want to Display or press 'b' to go back: "
         read pk
         let pkexist=1
         let linecounter=0
@@ -48,7 +48,10 @@ then
             break
             fi
         done
-
+        if [[ $pk == "b" ]]
+        then
+        break
+        fi
         if [ $pkexist -ne 0 ]
         then
             echo "This PK value doesn't exist."
@@ -57,7 +60,7 @@ then
         fi
         awk -F: 'BEGIN{OFS="\t";ORS="\t"}{print $1,$2}' ./DataBases/$1/.colsnames
         echo ""
-        awk -F: 'BEGIN{OFS="\t \t";}{if ('$pk'==$1) print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' "./DataBases/$1/$input"
+        awk -F: 'BEGIN{OFS="\t \t";}{if ('$pk' == '$1' || '$pk' == $1) print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' "./DataBases/$1/$input"
         echo "Press any key to continue "
         read back
         break
