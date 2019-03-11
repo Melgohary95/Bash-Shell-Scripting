@@ -16,6 +16,11 @@ do
     if [[ $input == "b" ]]
 
     then break
+    elif [ ${#input} -gt 15 ]
+      then
+            echo "Invalid Input >> (Length should be less than 10 characters!!)"
+            sleep 2 
+            continue
     elif [[ $input =~ $regex ]]
     then
 
@@ -65,6 +70,11 @@ do
               if [[ $colName == "b" ]]
 
               then break 2
+            elif [ ${#colName} -gt 15 ]
+            then
+            echo "Invalid Input >> (Length should be less than 10 characters!!)"
+            sleep 2 
+            continue
               elif [[ $colName =~ $regex ]]
               then
                   if test -z "$colName"

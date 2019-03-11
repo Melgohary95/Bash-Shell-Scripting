@@ -11,6 +11,11 @@ do
     if [[ $input == "b" ]]
 
     then break
+    elif [ ${#input} -gt 15 ]
+      then
+            echo "Invalid Input >> (Length should be less than 10 characters!!)"
+            sleep 2 
+            continue
     elif [[ $input =~ $regex ]]
       then
             if test -e "./DataBases/$input"

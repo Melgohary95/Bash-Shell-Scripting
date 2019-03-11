@@ -30,14 +30,14 @@ else
         then
             if test -z "$input"
             then
-                echo "Invalid name.(Table name should contain at least one character!!)"
+                echo "Invalid name >> (Table name should contain at least one character!!)"
                 sleep 1
                 continue
 
             elif test -e "./DataBases/$DBname/$input"
             then
                 clear
-                echo "Now you're editing ' $input ' Table"
+                echo "Editing ' $input ' Table"
                 let isempty=`cat ./DataBases/$DBname/$input | wc -l`
                 if [ $isempty -eq 0 ]
                 then
