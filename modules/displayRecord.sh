@@ -5,6 +5,14 @@ export LC_COLLATE=C
 
 regex='^[a-zA-Z][0-9a-zA-Z_]*$'
 
+let x=`ls "./DataBases/$1" | wc -w`
+if [ $x -eq 0 ]
+then
+  echo "There is no tables in the database"
+  sleep 1
+  break
+fi
+
 while [ true ]
     do
     clear
@@ -37,9 +45,9 @@ then
         let pkexist=1
         let linecounter=0
 
-        pkrecord=`cut -f1 -d":" ./DataBases/$1/$input`               
+        pkrecord=`cut -f1 -d":" ./DataBases/$1/$input`
 
-        for test in $pkrecord                         
+        for test in $pkrecord
         do
             let linecounter=$linecounter+1
             if [ $test -eq $pk ] 2> /dev/null || [ $test = $pk ] 2> /dev/null
